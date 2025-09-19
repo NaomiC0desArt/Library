@@ -1,14 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        
+  </head>
+  <body>
+    <header class="heading">
+      <h1>Library</h1>
+    </header>
+    <div class="form-container">
+      <h1>Add a book</h1>
+      <form action="" method="get" class="form">
+        <div class="form-element">
+          <label for="book-title"
+            >Title
+            <input type="text" name="book-title" id="book-title" />
+          </label>
+        </div>
+
+        <div class="form-element">
+          <label for="book-author"
+            >Author
+            <input type="text" name="book-author" id="book-author" />
+          </label>
+        </div>
+
+        <div class="form-element">
+          <label for="book-pages"
+            >Pages
+            <input type="number" name="book-pages" id="book-pages" min="100" />
+          </label>
+        </div>
+
+        <div class="form-element">
+          <label for="book-read"
+            >Have you read it?
+            <input type="radio" name="book-read" id="book-read" />
+          </label>
+        </div>
+
+        <button type="submit" class="btn" id="btn-add-book">Add</button>
+      </form>
+    </div>
+    <div class="books-container">
+      <div class="container"></div>
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
