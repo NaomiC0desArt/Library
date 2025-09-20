@@ -126,4 +126,13 @@ container.addEventListener("click", (event) => {
 //silly book list
 addBookToLibrary("Pride and Prejuice", "Jane Austen", 384, true);
 addBookToLibrary("How to solve it", "George Polya", 288, false);
+addBookToLibrary("The Bell Jar", "Sylvia Plath", 244, false);
+addBookToLibrary("No Longer Human", "Osamu Dazai", 176, true);
+addBookToLibrary("Crime and Punishment", "Fyodor Dostoevsky", 545, true);
+addBookToLibrary("Hamlet", "William Shakespeare", 300, false);
+addBookToLibrary("Metamorphosis", "Franz Kafka", 80, true);
+addBookToLibrary("White Nights", "Fyodor Dostoevsky", 70, true);
+addBookToLibrary("The Stranger", "Albert Camus", 159, true);
+addBookToLibrary("Goodnight Punpun", "Inio Asano", 2250, true);
+addBookToLibrary("Nana", "Ai Yazawa", 4000, true);
 displayBooks();
