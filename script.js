@@ -16,17 +16,16 @@ class Book {
   }
 
   changeReadingState() {
-  if (this.read === "already read it") {
-    this.read = "not read yet";
-  } else {
-    this.read = "already read it";
+    if (this.read === "already read it") {
+      this.read = "not read yet";
+    } else {
+      this.read = "already read it";
+    }
   }
 }
-}
-
 
 //book creation
-function addBookToLibrary(title, author, pages, read) {
+function addBookToLibrary(title, author = "anonymous", pages, read) {
   let newBook = new Book(title, author, pages, read);
 
   myLibrary.push(newBook);
@@ -88,6 +87,12 @@ const form = document.querySelector(".form");
 
 //event to send info from the form to myLibrary
 form.addEventListener("submit", (event) => {
+  if (!form.checkValidity()) {
+    event.preventDefault();
+    form.reportValidity();
+    return;
+  }
+
   event.preventDefault();
 
   const title = document.getElementById("book-title").value;
@@ -122,6 +127,33 @@ container.addEventListener("click", (event) => {
     event.target.textContent = myLibrary[index].read;
 
     event.target.classList.toggle("read");
+  }
+});
+
+//add form valitation
+const title = document.getElementById("book-title");
+
+title.addEventListener("input", (event) => {
+  if (title.validity.valueMissing) {
+    title.setCustomValidity("You need to enter the title of the book.");
+  } else if (title.validity.tooShort) {
+    title.setCustomValidity(
+      `The title of the book needs to be at least ${title.minLength} characters long.`
+    );
+  } else {
+    title.setCustomValidity("");
+  }
+});
+
+const pages = document.getElementById("book-pages");
+
+pages.addEventListener("input", (event) => {
+  if (pages.validity.rangeUnderflow) {
+    pages.setCustomValidity(
+      `The number of pages has to be greater than ${pages.min}.`
+    );
+  } else {
+    pages.setCustomValidity("");
   }
 });
 
